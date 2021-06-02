@@ -22,10 +22,7 @@ spec:
           hostPath:
             path: /var/run/docker.sock
       containers:
-      # - env:
-      #   - name: DOCKER_CLEAN_INTERVAL
-      #     value: "43200"
-        name: k8s-cleanup
+      - name: k8s-cleanup
         image: tunnm/k8s-docker-clean:18
         imagePullPolicy: Always
         resources:
@@ -35,3 +32,6 @@ spec:
         volumeMounts:
           - name: dockersocket
             mountPath: /var/run/docker.sock
+        # env:
+        # - name: DOCKER_CLEAN_INTERVAL
+        #   value: "43200"
