@@ -1,4 +1,4 @@
-FROM docker:dind
+FROM docker:18-dind
 COPY k8s-docker-clean.sh /bin/
 RUN apk add --update bash && \
     chmod +x /bin/k8s-docker-clean.sh
