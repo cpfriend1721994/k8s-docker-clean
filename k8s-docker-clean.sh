@@ -8,7 +8,7 @@ while true; do
   # Remove dangling volumes
   docker volume ls -qf dangling=true  | xargs --no-run-if-empty docker volume rm
   # Remove all unused images
-  docker image prune --force
+  docker images -q | xargs --no-run-if-empty docker rmi
   # DOCKER_CLEAN_INTERVAL defaults to 30min
   sleep $DOCKER_CLEAN_INTERVAL
 done
